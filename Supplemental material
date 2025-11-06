@@ -1,0 +1,8 @@
+Parameters for the dental data set are as follows:
+nIter regType	lambda	alpha	nu	gamma	adaptLR	subsample	mtry 
+200 l1	0.1	1	0.5	0.05	TRUE	0.3	0.7 
+
+Parameters for the simulation data set are as follows:
+nIter	regType	lambda	alpha	nu	gamma	adaptLR	subsample	mtry
+100	elastic	0.1	0.2	0.5	0.01	TRUE	1	0.3
+
