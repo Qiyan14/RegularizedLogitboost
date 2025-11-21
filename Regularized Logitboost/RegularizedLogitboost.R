@@ -337,28 +337,28 @@ LogitBoostRegularizedModel <- list(
 # customSummary function for caret
 customSummary <- function(data, lev = NULL, model = NULL) {
   if (length(lev) > 2) {
-    stop(paste("Your outcome has", length(lev),
-               "levels. TwoClassSummary isn't appropriate."))
+    stop(paste("Your outcome has", length(lev), "levels. The twoClassSummary() function isn't appropriate."))
   }
-  if (!requireNamespace("pROC", quietly = TRUE)) {
-    stop("Package pROC needed for this function to work. Please install it.")
+  
+  requireNamespaceQuietStop <- function(pkg) {
+    if (!requireNamespace(pkg, quietly = TRUE)) {
+      stop(paste("Package", pkg, "needed for this function to work. Please install it."))
+    }
   }
+  requireNamespaceQuietStop("pROC")
+  
   if (!all(levels(data[, "pred"]) == lev)) {
     stop("levels of observed and predicted data do not match")
   }
   
-  # Confusion matrix counts
-  cm <- table(data[, "pred"], data[, "obs"])
-  tp <- cm[lev[2], lev[2]]
-  tn <- cm[lev[1], lev[1]]
-  fp <- cm[lev[2], lev[1]]
-  fn <- cm[lev[1], lev[2]]
+  sens <- sensitivity(data[, "pred"], data[, "obs"], lev[1])
+  spec <- specificity(data[, "pred"], data[, "obs"], lev[2])
   
-  sensitivity <- if ((tp + fn) > 0) tp / (tp + fn) else 0
-  specificity <- if ((tn + fp) > 0) tn / (tn + fp) else 0
-  accuracy    <- (tp + tn) / (tp + tn + fp + fn)
+  accuracy <- mean(c(sens, spec))
   
-  c(Sens = sensitivity, Spec = specificity, Accuracy = accuracy)
+  out <- c(sens, spec, accuracy)
+  names(out) <- c("Sens", "Spec", "Accuracy")
+  out
 }
 
 
