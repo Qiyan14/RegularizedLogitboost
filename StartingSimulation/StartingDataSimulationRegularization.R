@@ -1,3 +1,8 @@
+#Qi Yan
+# 11.21.2025
+# This code is for generating the simulating data
+
+
 generate_rule_based_simulation <- function(n = 100, p_biomarkers = 20, seed = 42) {
   set.seed(seed)
   

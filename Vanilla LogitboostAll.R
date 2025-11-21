@@ -1,3 +1,9 @@
+#Qi Yan
+# 11.21.2025
+# This code is for Default Logitboost
+# Run the starting data processing first
+
+
 # Load libraries
 library(caret)
 library(doParallel)
