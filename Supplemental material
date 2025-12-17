@@ -1,21 +1,39 @@
+Best tuning parameters:
+
+For the Regularized Logitboost Model:
+
 Parameters for the dental data set are as follows:
-nIter regType	lambda	alpha	nu	gamma	adaptLR	subsample	mtry 
-200 l1	0.1	1	0.5	0.05	TRUE	0.3	0.7 
+nIter = 200, regType = l1, lambda = 0.1, alpha = 1, nu = 0.5, gamma = 0.05, adaptLR = TRUE, subsample = 0.3, mtry = 0.7
 
 Parameters for the simulation data set are as follows:
-nIter	regType	lambda	alpha	nu	gamma	adaptLR	subsample	mtry
-100	elastic	0.1	0.2	0.5	0.01	TRUE	1	0.3
+nIter = 100, regType = elastic, lambda = 0.1, alpha = 0.2, nu = 0.5, gamma = 0.01, adaptLR = TRUE, subsample = 1, mtry = 0.3
+
+Dental data set
+
+Parameters for the AdaBoost model are as follows:
+iter = 200, maxdepth = 2, nu = 0.1
+
+Parameters for the XGBoost model are as follows:
+nrounds = 50, max_depth = 3, eta = 0.2, gamma = 0, colsample_bytree = 0.8, min_child_weight = 1, subsample = 0.8
+
+Parameters for the LogitBoost model are as follows:
+nIter = 100
+
+Simulation data set
+
+Parameters for the AdaBoost model are as follows:
+iter = 10, maxdepth = 2, nu = 0.1
+
+Parameters for the XGBoost model are as follows:
+nrounds = 10, max_depth = 2, eta = 0.01, gamma = 0, colsample_bytree = 0.8, min_child_weight = 1, subsample = 0.8
+
+Parameters for the LogitBoost model are as follows:
+nIter = 150
 
 
-Parameters for the best LogitBoost model are as follows:
-nIter = 200
+#####
 
-Parameters for the bestAdaBoost model are as follows:
-iter = 200, maxdepth = 3, nu = 0.5
-
-Parameters for the best XGBoost model are as follows:
-nrounds = 200, max_depth = 3, eta = 0.1, gamma = 0.05, colsample_bytree = 1.0, min_child_weight = 1, subsample = 0.8
-
+Complete grid search tuning parameters:
 
 LogitBoost (tuning description)
 
@@ -38,3 +56,15 @@ colsample_bytree ∈ {0.8, 1.0},
 min_child_weight ∈ {1, 3},
 subsample ∈ {0.8, 1.0}, and
 nrounds ∈ {10, 25, 50, 100, 200, 500}.
+
+
+
+
+
+
+
+
+
+
+
+
