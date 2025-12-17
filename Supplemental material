@@ -7,4 +7,34 @@ nIter	regType	lambda	alpha	nu	gamma	adaptLR	subsample	mtry
 100	elastic	0.1	0.2	0.5	0.01	TRUE	1	0.3
 
 
-# Add in the hyperparameter search numbers for the other methods
+Parameters for the best LogitBoost model are as follows:
+nIter = 200
+
+Parameters for the bestAdaBoost model are as follows:
+iter = 200, maxdepth = 3, nu = 0.5
+
+Parameters for the best XGBoost model are as follows:
+nrounds = 200, max_depth = 3, eta = 0.1, gamma = 0.05, colsample_bytree = 1.0, min_child_weight = 1, subsample = 0.8
+
+
+LogitBoost (tuning description)
+
+For LogitBoost, the number of boosting iterations was tuned over
+nIter ∈ {5, 10, 15, 25, 50, 75, 100, 150, 200, 500}.
+
+AdaBoost (tuning description)
+
+For AdaBoost, the number of iterations was varied over
+iter ∈ {10, 25, 50, 100, 200, 500},
+with tree depth maxdepth ∈ {2, 3, 4} and learning rate nu ∈ {0.1, 0.5, 1.0}.
+
+XGBoost (tuning description)
+
+For XGBoost, models were tuned over the following parameter grid:
+max_depth ∈ {2, 3, 4},
+eta ∈ {0.01, 0.1, 0.2},
+gamma ∈ {0, 0.1, 1},
+colsample_bytree ∈ {0.8, 1.0},
+min_child_weight ∈ {1, 3},
+subsample ∈ {0.8, 1.0}, and
+nrounds ∈ {10, 25, 50, 100, 200, 500}.
